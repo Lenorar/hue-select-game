@@ -1,6 +1,8 @@
 console.log('it works');
 
 
+  let myDiv = $(`<div class="intro">`);
+  let startButton = $(`<div class="start-button">START BITCH</div>`);
 
 
 $( document ).ready(function() {
@@ -9,27 +11,47 @@ $( document ).ready(function() {
 
     $('body').css('background-color', '#E2E8BA')
 
-    let myDiv = $(`<div class="intro">`);
     myDiv.append( `<h3>Welcome to Match Colors. You have a limited amount of time to make the large color block with the color bars.</h3>` );
     $( "body" ).append( myDiv );
-
 
     myDiv.animate({top: 30}, "slow");
 
 
+    $( "body" ).append( startButton );
+    $(startButton).css('background-color', 'green')
+
+    $(startButton).click(function(){
+      console.log('please please please work')
+      startGame();
+
+    });
+
 });
 
 
-$(document).click(function(){
+function startGame(){
 
     $('body').css('background-color', '#fff')
 
     $('.intro').hide();
 
     $('.container').show();
+    $(startButton).hide();
 
-})
 
+
+  //start timer
+    resetCountDown();
+    countDown();
+}
+
+
+$('#reset-button').click(function(){
+        console.log('clicked baby!');
+       $('.container').hide();
+      myDiv.animate({top: 30}, "slow");
+        $('body').css('background-color', '#E2E8BA')
+});
 
 
 // $( "#primary-color" ).click(function() {
@@ -49,7 +71,7 @@ $(document).click(function(){
 //         if (usedColors[i] == rand) {
 //           return
 //           console.log('its in here')
-//        }else{
+//        }{
 //            $('.bar').css('background',rand);
 //        }
 //     }
@@ -61,6 +83,7 @@ $(document).click(function(){
 // })
 
 function advanceToNextRound() {
+  console.log('yoooo')
   addPoints();
   addRound();
 
@@ -89,13 +112,11 @@ function changeColor() {
   assignColor();
 
 }
-
   //new function that assigns each div a color in colorarray#
   // and assign primary color randomly from that array.
 
 function assignColor() {
   // individualColorArray=['#CCEDFF', '#BAEDFF', '#BAEDF0', '#BAE3F0', '#BAD9F0', '#B2D9F0', '#B2D9D9', '#C7D9D9'];
-
 
   var bar = $('.bar');
   for (var i = 0; i < individualColorArray.length; i++) {
@@ -185,7 +206,7 @@ function evaluate() {
 
     if ( $(this).css("background-color") === primaryColor.css("background-color") ){
       advanceToNextRound();
-    } else {
+    }  {
       $(this).css('border-bottom', 'solid 2px red');
       $(this).css('border-top', 'solid 2px red');
       $(this).mouseout(function(){
