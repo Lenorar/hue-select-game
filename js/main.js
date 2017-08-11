@@ -1,9 +1,7 @@
 console.log('it works');
 
-
-  let myDiv = $(`<div class="intro">`);
-  let startButton = $(`<div class="start-button">Start</div>`);
-
+let myDiv = $(`<div class="intro">`);
+let startButton = $(`<div class="start-button">Start</div>`);
 
 $( document ).ready(function() {
 
@@ -15,27 +13,20 @@ $( document ).ready(function() {
     myDiv.append( `<h3>Welcome to Match Colors. You have a limited amount of time to make the large color block with the color bars. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis consectetur leo vitae convallis. Nam sed nulla pharetra, elementum felis tempus, sollicitudin nulla. Aenean dictum risus velit, et vestibulum orci finibus quis. Curabitur ac leo vitae nulla feugiat dictum. Nullam dignissim erat libero, nec blandit diam facilisis in.</h3>` );
     $( "body" ).append( myDiv );
 
-    // myDiv.hide();
+    myDiv.animate({
+        opacity: 1,
+        top: 50
+    }, 2000 );
 
-    myDiv.fadeIn( 500);
-
-    myDiv.animate({top: 50}, 1000 );
-
-
-   myDiv.fadeIn('slow');
-
-
-
-
+    myDiv.fadeIn('slow');
 
     startButton.fadeIn( 1000);
 
     $("body").append( startButton );
 
     $(startButton).click(function(){
-      console.log('please please please work')
-      startGame();
-
+        console.log('please please please work')
+        startGame();
     });
 
 });
@@ -50,39 +41,37 @@ function startGame(){
     $('.container').show();
     $(startButton).hide();
 
-
-
-  //start timer
+    //start timer
     resetCountDown();
     countDown();
 }
 
 
 $('#reset-button').click(function(){
-        console.log('clicked baby!');
-       $('.container').hide();
-      myDiv.animate({top: 30}, "slow");
-        $('body').css('background-color', '#E2E8BA')
+    console.log('clicked baby!');
+    $('.container').hide();
+    myDiv.animate({top: 30}, "slow");
+    $('body').css('background-color', '#E2E8BA')
 });
 
 
 function advanceToNextRound() {
-  console.log('yoooo')
-  addPoints();
-  addRound();
+    console.log('yoooo')
+    addPoints();
+    addRound();
 
-  resetCountDown();
-  countDown();
-  changeColor();
-  // assignColor();
+    resetCountDown();
+    countDown();
+    changeColor();
+    // assignColor();
 }
 
 function TimeOutNextRound() {
-  addRound();
+    addRound();
 
-  resetCountDown();
-  countDown();
-  changeColor();
+    resetCountDown();
+    countDown();
+    changeColor();
 }
 
 
@@ -91,28 +80,28 @@ let arrayColorOptions = [[],['#B3E6FF','#ADE1FA', '#ADDAF2', '#A3DAF2', '#A3DAFF
 
 function changeColor() {
 
-  arrayColorOptions.shift();
-  individualColorArray = arrayColorOptions[0]
-  assignColor();
+    arrayColorOptions.shift();
+    individualColorArray = arrayColorOptions[0]
+    assignColor();
 
 }
-  //new function that assigns each div a color in colorarray#
-  // and assign primary color randomly from that array.
+//new function that assigns each div a color in colorarray#
+// and assign primary color randomly from that array.
 
 function assignColor() {
-  // individualColorArray=['#CCEDFF', '#BAEDFF', '#BAEDF0', '#BAE3F0', '#BAD9F0', '#B2D9F0', '#B2D9D9', '#C7D9D9'];
+    // individualColorArray=['#CCEDFF', '#BAEDFF', '#BAEDF0', '#BAE3F0', '#BAD9F0', '#B2D9F0', '#B2D9D9', '#C7D9D9'];
 
-  var bar = $('.bar');
-  for (var i = 0; i < individualColorArray.length; i++) {
-      $(bar[i]).css('background-color', individualColorArray[i]);
-  };
+    var bar = $('.bar');
+    for (var i = 0; i < individualColorArray.length; i++) {
+        $(bar[i]).css('background-color', individualColorArray[i]);
+    };
 
 
-  //assign #primary-color to a random value in individualColorArray
-  let randomColor = individualColorArray[Math.floor(Math.random() * individualColorArray.length)];
-  $('#primary-color').css('background', randomColor);
+    //assign #primary-color to a random value in individualColorArray
+    let randomColor = individualColorArray[Math.floor(Math.random() * individualColorArray.length)];
+    $('#primary-color').css('background', randomColor);
 
-  console.log('this is the primary color' + randomColor)
+    console.log('this is the primary color' + randomColor)
 }
 
 
@@ -121,34 +110,34 @@ function assignColor() {
 //the time counts down from 30
 //at 0 seconds the browser switches to the next round
 let timer = {
-  seconds: 30,
-  timeDown: 1,
-  timerId: document.getElementById("timer-container"),
-  }
+    seconds: 30,
+    timeDown: 1,
+    timerId: document.getElementById("timer-container"),
+};
 
 console.log(this.timerId);
 
 function updateTime(){
     if (timer.seconds > 0){
-      timer.seconds--;
-      timer.timerId.textContent = timer.seconds;
+        timer.seconds--;
+        timer.timerId.textContent = timer.seconds;
     }else {
-      TimeOutNextRound();
+        TimeOutNextRound();
     }
-  }
+}
 
 
 function countDown() {
-  console.log('start');
+    console.log('start');
 
-  this.timerDown = setInterval(this.updateTime.bind(this), 200);
+    this.timerDown = setInterval(this.updateTime.bind(this), 200);
 };
 
 
 function resetCountDown () {
-      console.log('reset timer');
-      clearTimeout(this.timerDown);
-      timer.seconds = 31;
+    console.log('reset timer');
+    clearTimeout(this.timerDown);
+    timer.seconds = 31;
 }
 
 
@@ -186,23 +175,23 @@ function resetCountDown () {
 $('.color-container').on('click', '.bar', evaluate);
 
 function evaluate() {
-  let primaryColor = $('#primary-color');
+    let primaryColor = $('#primary-color');
 
     if ( $(this).css("background-color") === primaryColor.css("background-color") ){
-      advanceToNextRound();
+        advanceToNextRound();
     }  {
-      $(this).css('border-bottom', 'solid 2px red');
-      $(this).css('border-top', 'solid 2px red');
-      $(this).mouseout(function(){
-          $(this).css('border', 'solid 2px white');
-      });
-      subtractPoints();
+        $(this).css('border-bottom', 'solid 2px red');
+        $(this).css('border-top', 'solid 2px red');
+        $(this).mouseout(function(){
+            $(this).css('border', 'solid 2px white');
+        });
+        subtractPoints();
     }
 }
 
 function finishTimer () {
-      console.log('end timer');
-      clearInterval(this.timerDown);
+    console.log('end timer');
+    clearInterval(this.timerDown);
 
 }
 
@@ -211,13 +200,13 @@ let count=0
 let score = $('#score')
 
 function addPoints () {
-  count+=100;
-  score.text(count);
+    count+=100;
+    score.text(count);
 }
 
 function subtractPoints(){
-  count-=10;
-  score.text(count);
+    count-=10;
+    score.text(count);
 };
 
 //this function changes rounds when user gets correct color
@@ -225,18 +214,18 @@ let roundNumber=1;
 let round = $('#round');
 
 function addRound(){
-  if (roundNumber < 7){
-    roundNumber+=1;
-    round.text(roundNumber);
-  } if (roundNumber > 7) {
-    finishTimer();
-  }
+    if (roundNumber < 7){
+        roundNumber+=1;
+        round.text(roundNumber);
+    } if (roundNumber > 7) {
+        finishTimer();
+    }
 }
 
 
 function finishedState(){
-  $('.row').hide();
-  $('body').css('background-color', '#A7B4BC')
+    $('.row').hide();
+    $('body').css('background-color', '#A7B4BC')
 }
 
 
