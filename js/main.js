@@ -2,23 +2,35 @@ console.log('it works');
 
 
   let myDiv = $(`<div class="intro">`);
-  let startButton = $(`<div class="start-button">START BITCH</div>`);
+  let startButton = $(`<div class="start-button">Start</div>`);
 
 
 $( document ).ready(function() {
+
     $('nav').hide();
     $('.container').hide();
 
     $('body').css('background-color', '#E2E8BA')
 
-    myDiv.append( `<h3>Welcome to Match Colors. You have a limited amount of time to make the large color block with the color bars.</h3>` );
+    myDiv.append( `<h3>Welcome to Match Colors. You have a limited amount of time to make the large color block with the color bars. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis consectetur leo vitae convallis. Nam sed nulla pharetra, elementum felis tempus, sollicitudin nulla. Aenean dictum risus velit, et vestibulum orci finibus quis. Curabitur ac leo vitae nulla feugiat dictum. Nullam dignissim erat libero, nec blandit diam facilisis in.</h3>` );
     $( "body" ).append( myDiv );
 
-    myDiv.animate({top: 30}, "slow");
+    // myDiv.hide();
+
+    myDiv.fadeIn( 500);
+
+    myDiv.animate({top: 50}, 1000 );
 
 
-    $( "body" ).append( startButton );
-    $(startButton).css('background-color', 'green')
+   myDiv.fadeIn('slow');
+
+
+
+
+
+    startButton.fadeIn( 1000);
+
+    $("body").append( startButton );
 
     $(startButton).click(function(){
       console.log('please please please work')
@@ -53,34 +65,6 @@ $('#reset-button').click(function(){
         $('body').css('background-color', '#E2E8BA')
 });
 
-
-// $( "#primary-color" ).click(function() {
-//     console.log('click');
-//     let colors = ["pink","blue","gray"];
-
-//     let usedColors = [];
-
-//     $('.bar').each(function(i){
-//         while (array.length>0){
-//           let rand = colors[Math.floor(Math.random() * colors.length)];
-
-//           colors.splice(rand);
-//           usedColors.push(rand);
-//           console.log(usedColors);
-
-//         if (usedColors[i] == rand) {
-//           return
-//           console.log('its in here')
-//        }{
-//            $('.bar').css('background',rand);
-//        }
-//     }
-//  });
-// });
-
-// $('button#automatic-win').click(function() {
-//   advanceToNextRound();
-// })
 
 function advanceToNextRound() {
   console.log('yoooo')
