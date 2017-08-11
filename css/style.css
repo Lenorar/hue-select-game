@@ -25,15 +25,13 @@ h2 {
   opacity: 0;
 }
 
-.intro h3{
+.intro h3 {
   font-weight: 300;
   padding: 5% 20%;
   color: white;
 
   font-size: 2rem;
   text-align: center;
-
-
 }
 
 
@@ -55,9 +53,6 @@ h2 {
 }
 
 
-
-
-
 /*colors*/
 /*#333333*/
 /*nav*/
@@ -72,10 +67,8 @@ nav {
 }
 
 /*timer*/
-#timer-container {
-  font-size: 7rem;
-  font-weight: 100;
-}
+
+
 
 .row {
   display: flex;
@@ -97,6 +90,15 @@ nav {
   display: inline;
   font-size: 3rem;
 }
+
+#timer-container {
+  font-size: 7rem;
+  font-weight: 100;
+  border-left: none;
+
+}
+
+
 
 .col-lg-2 h3 {
   font-weight: 300;
@@ -158,6 +160,138 @@ nav {
 }
 .bar:nth-child(8){
   background-color: #E7EDCA;
+}
+
+
+
+.finish-state {
+  opacity: 0;
+  border-left: solid black 60px;
+  width: 300px;
+}
+
+
+
+
+.finish-state h4 {
+  margin:18%;
+  font-size: 2rem;
+  font-weight: 100;
+  color: black;
+  text-align: left;
+}
+
+
+.final-score {
+  margin-left: 10%;
+  margin-top: 20%;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.final-score #score{
+  font-size: 10rem;
+}
+
+.final-score h3 {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+
+
+
+
+.intro {
+  width: 100vw;
+  top: 100px;
+  position: absolute;
+  opacity: 0;
+}
+
+.intro h3 {
+  font-weight: 300;
+  padding: 10%;
+  color: #333333;
+
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+
+
+.start-button{
+  font-size: 3rem;
+  font-weight: 100;
+  color: white;
+  padding:10%;
+  margin: 10px 0;
+
+}
+
+
+
+#timer-container {
+  width: 50px;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+#round, #score {
+  display: inline;
+  font-size: .8rem;
+}
+
+.bar {
+  display: inline-block;
+  width: 8rem;
+  height: 2rem;
+}
+
+.bar:hover{
+  height: 2rem;
+}
+
+
+.color-container {
+  margin: auto;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+}
+
+
+.col-lg-2{
+  width: 40%;
+  border:none;
+
+}
+
+.final-score {
+  margin-left: 10%;
+  margin-top: 60%;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
 }
 
 
