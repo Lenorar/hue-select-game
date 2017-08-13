@@ -8,7 +8,6 @@ let startButton = $(`<div class="start-button">begin</div>`);
 $( document ).ready(function() {
 
 
-    $('nav').hide();
     $('.container').hide();
 
     $('body').css('background-color', '#333333')
