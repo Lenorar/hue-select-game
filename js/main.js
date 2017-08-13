@@ -206,9 +206,10 @@ function finishedState(){
 
 
 
+
+function randomColorFinishState(){
     colorArray=['#B3E6FF','#795786','#A22D3A','#E64F43','#FFE975','#45BE6E','#45BE6E'];
     let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
-function randomColorFinishState(){
 
     $('.finish-state').css('border-color', randomColor);
     $('h4').css('color', randomColor);
