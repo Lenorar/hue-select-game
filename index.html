@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    	<meta charset="utf-8">
-    	<meta name="description" content="site description goes here">
-    	<meta name="keywords" content="site, keywords, go, here">
+    <meta charset="utf-8">
+    <meta name="description" content="site description goes here">
+    <meta name="keywords" content="site, keywords, go, here">
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-		<title>Final Project Template</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Final Project Template</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css">
     <link rel="stylesheet" href = "css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
@@ -16,26 +17,15 @@
       <h1>matching game</h1>
     </nav>
     <div class="container">
-      <div id= "tally"><h2></h2></div>
+
 
       <div id="primary-color"></div>
-
-      <div class="row projects-grid">
+      <div class="row projects-grid row-buttons">
         <div class= "col-lg-2" id="timer-container"></div>
         <div class= "reset col-lg-2">
             <h2 id="reset-button">RESET</h2>
         </div>
-
-        <div class="col-lg-4 color-container">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
+        <div class="col-lg-4"></div>
         <div class="col-lg-2 rounds-container">
           <h2 id="round">1</h2>
           <h3>out of 7<h3>
@@ -44,16 +34,26 @@
           <h2 id="score">0</h2>
           <h3>score</h3>
         </div>
+      </div>
+
+      <div class="row projects-grid">
+        <div class="col-lg-12 color-container">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
       </div>
       <div class="finish-state">
         <h4>Play Again</h4>
       </div>
     </div>
-
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 	</body>
-</html>
+  </html>
 
 

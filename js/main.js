@@ -1,42 +1,51 @@
-console.log('it works');
+console.log('hello world');
 
-let myDiv = $(`<div class="intro">`);
-let startButton = $(`<div class="start-button">Start</div>`);
+
+//this is the Introduction page
+let introDiv = $(`<div class="intro">`);
+let startButton = $(`<div class="start-button">begin</div>`);
 
 $( document ).ready(function() {
+
 
     $('nav').hide();
     $('.container').hide();
 
-    $('body').css('background-color', '#E2E8BA')
+    $('body').css('background-color', '#333333')
 
+    introDiv.append( `<h3>Welcome to Hue Select.<br>
+      You will be presented 8 colors. You have a limited amount of time to match one of the 8 colors
+      with the large color block. For every incorrect color selection your total score will subtract by 10 points. For every correct color
+      selection, you will receive 100 points and move on to the next round. Difficulty will vary depending on round. Good luck. </h3>` );
+    $( "body" ).append( introDiv );
 
-    //if first load choose this
-    myDiv.append( `<h3>Welcome to Match Colors. You have a limited amount of time to make the large color block with the color bars. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis consectetur leo vitae convallis. Nam sed nulla pharetra, elementum felis tempus, sollicitudin nulla. Aenean dictum risus velit, et vestibulum orci finibus quis. Curabitur ac leo vitae nulla feugiat dictum. Nullam dignissim erat libero, nec blandit diam facilisis in.</h3>` );
-    $( "body" ).append( myDiv );
-
-    //if previous click was reset-button show this
-
-
-    myDiv.animate({
+    introDiv.animate({
         opacity: 1,
-        top: 50
-    }, 2000 );
-
+        top: 20
+    }, 1000 );
 
     startButton.fadeIn( 1000);
 
     $("body").append( startButton );
 
     $(startButton).click(function(){
-        myDiv.hide();
+        introDiv.hide();
         startGame();
     });
-
 });
 
 
-//this function changes rounds when user gets correct color
+function startGame(){
+    $('body').css('background-color', '#fff')
+    $(startButton).hide();
+    $('.intro').hide();
+    roundNumber = 1;
+    $('.container').show();
+    resetCountDown();
+    countDown();
+}
+
+//this function changes round #s when user gets correct color
 let roundNumber = 1;
 let round = $('#round');
 function addRound(){
@@ -48,28 +57,14 @@ function addRound(){
         finishedState();
     }
 }
-function startGame(){
-    console.log('this is the beginning layout of game')
-    $('body').css('background-color', '#fff')
-    $(startButton).hide();
-    $('.intro').hide();
-    roundNumber = 1;
-    $('.container').show();
-    resetCountDown();
-    countDown();
-        $('#tally').hide();
 
-}
-
-
-
+//this resets the game, berings user to the Introduction page.
 $('#reset-button').click(function(){
     window.location.reload();
 });
 
-
+//this calls the functions when the user selects the correct color.
 function advanceToNextRound() {
-    console.log('yoooo')
     addPoints();
     addRound();
     resetCountDown();
@@ -77,6 +72,7 @@ function advanceToNextRound() {
     changeColor();
 }
 
+//this automatically switches the user to the next round, if the timer reaches 0
 function TimeOutNextRound() {
     addRound();
     resetCountDown();
@@ -88,11 +84,11 @@ function TimeOutNextRound() {
 //this is the function that assigns the colors
 let arrayColorOptions = [[]
 ['#B3E6FF','#ADE1FA','#ADDAF2','#A3DAF2','#A3DAFF','#95DAFF','#CBF0FF','#CBE7FF'],
-['#795786','#79618C','#89618C','#92618C','#926198','#9E6198','#9E7198','#9E718E'],
-['#A22D3A','#A22D35','#A22835','#9B2835','#9B282E','#9B222E','#94222E','#941C2E'],
-['#E64F43','#E64F4A','#E6544A','#ED544A','#F2544A','#F24C4A','#F24C43','#F24C3A'],
+['#45BE6E','#61BE6C','#5FBA6A','#75E582','#72E080','#57AB61','#29B23E','#29B23E'],
+['#FF6638','#FF5C38','#FF4A38','#FF4A45','#FF5945','#FF5936','#FF5924','#DB4D1F'],
+['#E64F43','#C7443A','#B03C33','#C44339','#C44339','#942B2B','#AB3227','#A6301F'],
 ['#FFE975','#F4E375','#EDE375','#EDDB75','#EDDB82','#EDDB8C','#EAD883','#EAD87A'],
-['#45BE6E','#40BE6E','#35BA6E','#35BA60','#238135','#29993E','#29B23E','#29B25E'],
+['#795786','#79618C','#89618C','#92618C','#926198','#9E6198','#9E7198','#9E718E'],
 ['#8FC5E3','#9DC5E3','#9DD1E3','#8AD1E3','#9AE8FC','#B6E8FC','#C0DEFC','#BCDAF7']]
 
 function changeColor() {
@@ -101,48 +97,35 @@ function changeColor() {
       resetCountDown();
       finishedState();
       return
-
     }
-
-
     arrayColorOptions.shift();
     individualColorArray = arrayColorOptions[0]
     assignColor();
-
-
-
 }
-//new function that assigns each div a color in colorarray#
-// and assign primary color randomly from that array.
+
+
+//function that assigns each div a color in colorarray# and assigns they primary color randomly from that array.
 
 function assignColor() {
-    // individualColorArray=['#CCEDFF', '#BAEDFF', '#BAEDF0', '#BAE3F0', '#BAD9F0', '#B2D9F0', '#B2D9D9', '#C7D9D9'];
 
     var bar = $('.bar');
     for (var i = 0; i < individualColorArray.length; i++) {
         $(bar[i]).css('background-color', individualColorArray[i]);
     };
 
-
-    //assign #primary-color to a random value in individualColorArray
     let randomColor = individualColorArray[Math.floor(Math.random() * individualColorArray.length)];
     $('#primary-color').css('background', randomColor);
 
     console.log('this is the primary color' + randomColor)
 }
 
-
-
-//this is my time tracker
+//this function is the time tracker
 //the time counts down from 30
-//at 0 seconds the browser switches to the next round
 let timer = {
     seconds: 30,
     timeDown: 1,
     timerId: document.getElementById("timer-container"),
 };
-
-console.log(this.timerId);
 
 function updateTime(){
     if (timer.seconds > 0){
@@ -153,42 +136,15 @@ function updateTime(){
     }
 }
 
-
 function countDown() {
     console.log('start');
-    this.timerDown = setInterval(this.updateTime.bind(this), 1000);
+    this.timerDown = setInterval(this.updateTime.bind(this), 5);
 };
-
 
 function resetCountDown () {
     console.log('reset timer');
     clearTimeout(this.timerDown);
     timer.seconds = 31;
-}
-
-
-
-
-
-function updateTimeThreeTwoOne(){
-    if (timer.seconds > 0){
-      timer.seconds--;
-      timer.timerId.textContent = timer.seconds;
-    }else {
-      startGame();
-    }
-}
-
-//this function counts down from 3
-function resetCountDownEasy () {
-
-    clearTimeout(this.timerDown);
-    timer.seconds = 4;
-
-    updateTimeThreeTwoOne();
-
-    this.timerDown = setInterval(this.updateTimeThreeTwoOne.bind(this), 1000);
-
 }
 
 
@@ -219,24 +175,15 @@ function finishTimer () {
 //these functions counts the users score
 let count=0
 let score = $('#score')
-let tally = $('#tally h2')
 function addPoints () {
     count+=100;
     score.text(count);
-    tally.text('100');
-    tally.fadeOut( "slow" );
-
 }
 
 function subtractPoints(){
     count-=10;
     score.text(count);
-    tally.text('- 10');
-    tally.fadeOut( "slow" );
 };
-
-
-
 
 
 function finishedState(){
@@ -257,16 +204,16 @@ function finishedState(){
     randomColorFinishState();
     randomColorChangeEveryFewSeconds();
 }
-    // $('#tally').hide();
 
-function randomColorFinishState(){
 
 
     colorArray=['#B3E6FF','#795786','#A22D3A','#E64F43','#FFE975','#45BE6E','#45BE6E'];
     let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+function randomColorFinishState(){
+
     $('.finish-state').css('border-color', randomColor);
     $('h4').css('color', randomColor);
-
+    $('.intro').css('color', randomColor);
 
     };
 setInterval(function randomColorChangeEveryFewSeconds(){randomColorFinishState(0)},1000);

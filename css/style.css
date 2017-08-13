@@ -1,61 +1,56 @@
-/*fonts*/
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #fbfbfb;
+  color: #333333
 }
 
 .container {
   width: 80vw;
-
 }
+
 h1 {
   font-weight: 100;
 }
+
 h2 {
   font-size: 1rem;
-
   font-weight: 400;
   padding-left: 5%;
 }
 
 .intro {
-  width: 100vw;
+  width: 70vw;
   top: 100px;
   position: absolute;
   opacity: 0;
 }
 
 .intro h3 {
-  font-weight: 300;
-  padding: 5% 20%;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 0 10%;
   color: white;
-
-  font-size: 2rem;
-  text-align: center;
+  font-size: 2.5rem;
+  text-align: left;
 }
 
 
-
-/*start button*/
 .start-button{
-  margin-left: 45%;
-  font-size: 4rem;
-  font-weight: 100;
+  font-weight: 800;
+  padding-left: 80%;
+  border-bottom: 1px solid #C8C8C8;
+  font-size: 2.5rem;
   color: white;
   position: absolute;
-  top: 50%;
-  height: 100px;
-  margin-top: 10%; /* account for padding and border if not using box-sizing: border-box; */
+  bottom: 15%;
+  transition: all .3s ease;
 }
 
 .start-button:hover {
-  color: #333333;
+  color: #75E582;
 }
 
-
-/*colors*/
-/*#333333*/
-/*nav*/
 nav {
   overflow: hidden;
   background-color: white;
@@ -66,10 +61,6 @@ nav {
   border-bottom: solid 1px #333333;
 }
 
-/*timer*/
-
-
-
 .row {
   display: flex;
   height: 50px;
@@ -77,14 +68,13 @@ nav {
 
 .col-lg-1{
   border-right: solid 1px #333333;
-
 }
-
 
 .col-lg-2 {
   margin-top: 20px;
   height: 50px;
   text-align: left;
+  width: 25%;
 }
 
 #round, #score {
@@ -96,9 +86,7 @@ nav {
   font-size: 7rem;
   font-weight: 100;
   border-left: none;
-
 }
-
 
 
 .col-lg-2 h3 {
@@ -108,48 +96,23 @@ nav {
 }
 
 
-
 #primary-color {
-
+  margin-top: 100px;
   height: 50vh;
   background-color: #E2E8BA;
-
-}
-
-
-#tally {
-  background-color: white;
-  border: 2px black solid;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  float: left;
-  margin-top: -50px;
-  margin-left: 95%;
-
-
-}
-
-
-#tally h2{
-  font-size: 2rem;
-  text-align: center;
-  padding-top: 5px;
 }
 
 .color-container {
-  width: 20vw;
   height: 25vh;
   margin: auto;
   display: flex;
   align-items: flex-end;
-
 }
 
 .bar {
   display: inline-block;
   margin: 5px;
-  width: 2rem;
+  width: 7rem;
   height: 8rem;
   bottom: 0px;
   transition: all .3s ease;
@@ -160,10 +123,12 @@ nav {
 }
 
 .bar:nth-child(1){
-  background-color: #E2E8BA;
+  background-color: #E2E8C8;
+  margin-left: 25%;
 }
 .bar:nth-child(2){
-  background-color: #E2E8C8;
+  background-color: #E2E8BA;
+
 }
 .bar:nth-child(3){
   background-color: #E7EDB2;
@@ -182,13 +147,12 @@ nav {
 }
 .bar:nth-child(8){
   background-color: #E7EDCA;
+  margin-right: 25%;
 }
-
-
 
 .finish-state {
   opacity: 0;
-  border-left: solid black 60px;
+  border-left: solid #333333 60px;
   width: 300px;
 }
 
@@ -199,10 +163,9 @@ nav {
   margin:18%;
   font-size: 2rem;
   font-weight: 100;
-  color: black;
+  color: #333333;
   text-align: left;
 }
-
 
 .final-score {
   margin-left: 10%;
@@ -210,8 +173,6 @@ nav {
   height: 100%;
   width: 100%;
 }
-
-
 
 .final-score #score{
   font-size: 10rem;
@@ -221,40 +182,77 @@ nav {
   font-size: 1rem;
 }
 
+
+#reset-button {
+  text-align: center;
+  padding:5px;
+  width: 70px;
+  border: 2px solid #333333;
+}
+
+
+.game-name {
+  color: pink;
+}
+
 @media only screen and (max-width: 900px) {
 
+.bar:nth-child(1){
+  margin-left: 0;
+}
+.bar:nth-child(8){
+  margin-right: 0;
+}
 
+.row {
+  display: flex;
+  height: 100px;
+}
 
 
 .intro {
   width: 100vw;
+  top: 100px;
+  line-height: 1.5rem;
+  position: absolute;
+  opacity: 0;
+}
+
+
+
+.intro {
+  width: 90vw;
+  padding: 0 5vw;
   top: 100px;
   position: absolute;
   opacity: 0;
 }
 
 .intro h3 {
-  font-weight: 300;
-  padding: 10%;
-  color: #333333;
-
-  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 5% 10%;
+  color: white;
+  font-size: 1rem;
   text-align: left;
+}
+
+
+.start-button{
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: white;
+  position: absolute;
+  bottom: 15%;
+  margin:0 0 0 15vw;
+  padding-left: 50%;
+  transition: all .3s ease;
 }
 
 
 #primary-color {
   margin-top: 10%;
 }
-.start-button{
-  font-size: 3rem;
-  font-weight: 100;
-  color: white;
-  padding:10%;
-  margin: 10px 0;
-
-}
-
 
 
 #timer-container {
@@ -279,7 +277,6 @@ nav {
   height: 2rem;
 }
 
-
 .color-container {
   margin: auto;
   display: flex;
@@ -288,19 +285,16 @@ nav {
   margin: 0;
 }
 
-
 .col-lg-2{
-  width: 48%;
+  width: 20%;
   border:none;
   text-align: left;
-
 }
 
 .col-lg-2 h2{
   border:none;
   text-align: right;
   margin: 0;
-
 }
 
 .final-score {
@@ -309,25 +303,44 @@ nav {
   width: 100%;
 }
 
-
 #reset-button {
   margin: 0;
   padding-left:5px;
+}
+}
 
+@media only screen and (max-width: 500px) {
+
+.final-score {
+  padding-top: 60%;
+
+}
+.final-score #score {
+    font-size: 5rem;
+  }
+
+.finish-state {
+    margin-top: -200px;
 }
 
 
+#round, #score {
+  font-size: 1.5rem;
+}
 
+.col-lg-2{
+  width: 35%;
+  margin-top: 0;
+  height: 30px;
+}
 
-
-
+.row {
+  margin-top: 10px;
+  height: 90px;
+}
 }
 
 
-
-
-
-}
 
 
 
