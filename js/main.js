@@ -18,7 +18,6 @@ $( document ).ready(function() {
     //if previous click was reset-button show this
 
 
-
     myDiv.animate({
         opacity: 1,
         top: 50
@@ -58,6 +57,8 @@ function startGame(){
     $('.container').show();
     resetCountDown();
     countDown();
+        $('#tally').hide();
+
 }
 
 
@@ -155,7 +156,7 @@ function updateTime(){
 
 function countDown() {
     console.log('start');
-    this.timerDown = setInterval(this.updateTime.bind(this), 100);
+    this.timerDown = setInterval(this.updateTime.bind(this), 1000);
 };
 
 
@@ -218,15 +219,20 @@ function finishTimer () {
 //these functions counts the users score
 let count=0
 let score = $('#score')
-
+let tally = $('#tally h2')
 function addPoints () {
     count+=100;
     score.text(count);
+    tally.text('100');
+    tally.fadeOut( "slow" );
+
 }
 
 function subtractPoints(){
     count-=10;
     score.text(count);
+    tally.text('- 10');
+    tally.fadeOut( "slow" );
 };
 
 
@@ -251,6 +257,7 @@ function finishedState(){
     randomColorFinishState();
     randomColorChangeEveryFewSeconds();
 }
+    // $('#tally').hide();
 
 function randomColorFinishState(){
 

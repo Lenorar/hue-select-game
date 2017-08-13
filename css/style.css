@@ -82,8 +82,9 @@ nav {
 
 
 .col-lg-2 {
+  margin-top: 20px;
+  height: 50px;
   text-align: left;
-  border-left: solid 1px #333333;
 }
 
 #round, #score {
@@ -109,10 +110,31 @@ nav {
 
 
 #primary-color {
-  margin-top: 10%;
+
   height: 50vh;
   background-color: #E2E8BA;
 
+}
+
+
+#tally {
+  background-color: white;
+  border: 2px black solid;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  float: left;
+  margin-top: -50px;
+  margin-left: 95%;
+
+
+}
+
+
+#tally h2{
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .color-container {
@@ -221,7 +243,9 @@ nav {
 }
 
 
-
+#primary-color {
+  margin-top: 10%;
+}
 .start-button{
   font-size: 3rem;
   font-weight: 100;
@@ -234,14 +258,15 @@ nav {
 
 
 #timer-container {
-  width: 50px;
   font-size: 2rem;
-  font-weight: 100;
+  font-weight: 300;
+   margin-left: 5px;
 }
 
 #round, #score {
   display: inline;
-  font-size: .8rem;
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 .bar {
@@ -265,8 +290,16 @@ nav {
 
 
 .col-lg-2{
-  width: 40%;
+  width: 48%;
   border:none;
+  text-align: left;
+
+}
+
+.col-lg-2 h2{
+  border:none;
+  text-align: right;
+  margin: 0;
 
 }
 
@@ -277,9 +310,11 @@ nav {
 }
 
 
+#reset-button {
+  margin: 0;
+  padding-left:5px;
 
-
-
+}
 
 
 
