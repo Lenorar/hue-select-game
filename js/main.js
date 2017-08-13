@@ -138,7 +138,7 @@ function updateTime(){
 
 function countDown() {
     console.log('start');
-    this.timerDown = setInterval(this.updateTime.bind(this), 5);
+    this.timerDown = setInterval(this.updateTime.bind(this), 500);
 };
 
 function resetCountDown () {
@@ -201,7 +201,7 @@ function finishedState(){
         opacity: 100,
 }, 2000 );
 
-    randomColorFinishState();
+     ColorFinishState();
     randomColorChangeEveryFewSeconds();
 }
 
